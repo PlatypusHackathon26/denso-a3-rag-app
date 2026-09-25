@@ -1,0 +1,8 @@
+{
+  "name": "factory-chat-internal",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chatbot nội bộ nhà máy với phân quyền tài liệu và SQLite",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=22.5.0" }
+}
