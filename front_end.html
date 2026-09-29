@@ -1049,13 +1049,16 @@
         $("#messages").append(wait);
         scrollMessagesToBottom();
         try {
-          const d = await api("/api/chat", {
+          const response = await fetch("/api/chat", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ message }),
+            body: JSON.stringify({ question: message, mode: "hybrid" }),
           });
+          const d = await response.json();
+          if (!response.ok)
+            throw Error(d.detail || d.error || "Không thể kết nối đến chatbot.");
           wait.remove();
-          addMessage(d.answer);
+          addMessage(d.answer ?? "Chatbot không trả về nội dung.");
         } catch (err) {
           wait.remove();
           addMessage(err.message);
