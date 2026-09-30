@@ -1,0 +1,33 @@
+[project]
+name = "local-rag"
+version = "0.2.0"
+description = "Local-first enterprise RAG with hybrid retrieval, citations, evaluation and optional vision ingestion."
+requires-python = ">=3.10"
+dependencies = [
+    "ollama>=0.4.0",
+    "lancedb>=0.22.0",
+    "pyarrow>=15.0.0",
+    "pypdf>=4.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+ui = ["streamlit>=1.38.0"]
+docling = ["docling>=2.0.0"]
+rerank = ["sentence-transformers>=3.0.0"]
+all = ["streamlit>=1.38.0", "docling>=2.0.0", "sentence-transformers>=3.0.0"]
+dev = ["pytest>=8.0.0"]
+
+[project.scripts]
+localrag = "localrag.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

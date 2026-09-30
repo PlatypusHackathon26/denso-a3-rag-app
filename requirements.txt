@@ -1,0 +1,11 @@
+ollama>=0.4.0
+lancedb>=0.22.0
+pyarrow>=15.0.0
+pypdf>=4.0.0
+python-dotenv>=1.0.0
+streamlit>=1.38.0
+pytest>=8.0.0
+
+# Optional advanced parsers / reranking
+# docling>=2.0.0
+# sentence-transformers>=3.0.0
